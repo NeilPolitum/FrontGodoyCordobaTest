@@ -101,4 +101,21 @@ export class GestionUsuariosComponent {
     return this.nuevoUsuario.nombre && this.nuevoUsuario.apellidos && this.nuevoUsuario.cedula &&
             this.nuevoUsuario.correoElectronico && this.nuevoUsuario.password;
   }
+
+  obtenerClasificacion(fechaUltimoAcceso: string): string {
+    const ahora = new Date();
+    const ultimoAcceso = new Date(fechaUltimoAcceso);
+    const diferenciaHoras = Math.abs(ahora.getTime() - ultimoAcceso.getTime()) / 36e5;
+
+    switch (true) {
+      case (diferenciaHoras <= 12):
+        return 'Hechicero';
+      case (diferenciaHoras <= 48):
+        return 'Luchador';
+      case (diferenciaHoras <= 168):
+        return 'Explorador';
+      default:
+        return 'Olvidado';
+    }
+  }
 }

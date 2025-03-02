@@ -37,6 +37,8 @@
             <p><strong>Apellidos:</strong> {{ usuario.apellidos }}</p>
             <p><strong>ID:</strong> {{ usuario.id }}</p>
             <p><strong>Correo:</strong> {{ usuario.correoElectronico }}</p>
+            <p><strong>Clasificación:</strong> {{ obtenerClasificacion(usuario.fechaUltimoAcceso) }}</p>
+            <p><strong>Puntaje:</strong> {{ usuario.puntaje }}</p>
             <button (click)="seleccionarUsuario(usuario)" class="btn-editar">Editar</button>
             <button (click)="eliminarUsuario(usuario.id)" class="btn-eliminar">Eliminar</button>
             <div *ngIf="usuarioSeleccionado && usuarioSeleccionado.id === usuario.id" class="formulario-editar-usuario">
